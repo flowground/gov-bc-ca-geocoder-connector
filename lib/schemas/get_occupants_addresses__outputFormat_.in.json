@@ -1,0 +1,211 @@
+{
+    "type": "object",
+    "properties": {
+        "outputFormat": {
+            "required": true,
+            "default": "json",
+            "enum": [
+                "json",
+                "geojson",
+                "xhtml",
+                "kml",
+                "gml",
+                "csv",
+                "shpz"
+            ],
+            "type": "string"
+        },
+        "addressString": {
+            "required": false,
+            "type": "string"
+        },
+        "tags": {
+            "required": false,
+            "type": "string"
+        },
+        "locationDescriptor": {
+            "required": false,
+            "default": "any",
+            "enum": [
+                "any",
+                "accessPoint",
+                "frontDoorPoint",
+                "parcelPoint",
+                "rooftopPoint",
+                "routingPoint"
+            ],
+            "type": "string"
+        },
+        "maxResults": {
+            "required": false,
+            "default": 1,
+            "type": "integer"
+        },
+        "interpolation": {
+            "required": false,
+            "default": "adaptive",
+            "enum": [
+                "adaptive",
+                "linear",
+                "none"
+            ],
+            "type": "string"
+        },
+        "echo": {
+            "default": false,
+            "type": "boolean"
+        },
+        "brief": {
+            "required": false,
+            "default": false,
+            "type": "boolean"
+        },
+        "autoComplete": {
+            "required": false,
+            "default": false,
+            "type": "boolean"
+        },
+        "setBack": {
+            "required": false,
+            "default": 0,
+            "type": "integer"
+        },
+        "outputSRS": {
+            "required": false,
+            "default": 4326,
+            "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+            ],
+            "type": "integer"
+        },
+        "minScore": {
+            "required": false,
+            "default": 1,
+            "type": "integer"
+        },
+        "matchPrecision": {
+            "required": false,
+            "default": "OCCUPANT",
+            "type": "string"
+        },
+        "matchPrecisionNot": {
+            "required": false,
+            "type": "string"
+        },
+        "siteName": {
+            "required": false,
+            "type": "string"
+        },
+        "unitDesignator": {
+            "required": false,
+            "enum": [
+                "APT",
+                "BLDG",
+                "BSMT",
+                "FLR",
+                "LOBBY",
+                "LWR",
+                "PAD",
+                "PH",
+                "REAR",
+                "RM",
+                "SIDE",
+                "SITE",
+                "SUITE",
+                "TH",
+                "UNIT",
+                "UPPR"
+            ],
+            "type": "string"
+        },
+        "unitNumber": {
+            "required": false,
+            "type": "string"
+        },
+        "unitNumberSuffix": {
+            "required": false,
+            "type": "string"
+        },
+        "civicNumber": {
+            "required": false,
+            "type": "string"
+        },
+        "civicNumberSuffix": {
+            "required": false,
+            "type": "string"
+        },
+        "streetName": {
+            "required": false,
+            "type": "string"
+        },
+        "streetType": {
+            "required": false,
+            "type": "string"
+        },
+        "streetDirection": {
+            "required": false,
+            "enum": [
+                "N",
+                "S",
+                "E",
+                "W",
+                "O",
+                "NE",
+                "NO",
+                "NW",
+                "SE",
+                "SO",
+                "SW"
+            ],
+            "type": "string"
+        },
+        "streetQualifier": {
+            "required": false,
+            "type": "string"
+        },
+        "localityName": {
+            "required": false,
+            "type": "string"
+        },
+        "provinceCode": {
+            "required": false,
+            "default": "BC",
+            "type": "string"
+        },
+        "localities": {
+            "required": false,
+            "type": "string"
+        },
+        "notLocalities": {
+            "required": false,
+            "type": "string"
+        },
+        "bbox": {
+            "required": false,
+            "type": "string"
+        },
+        "centre": {
+            "required": false,
+            "type": "string"
+        },
+        "maxDistance": {
+            "required": false,
+            "type": "number"
+        },
+        "extrapolate": {
+            "required": false,
+            "type": "boolean"
+        },
+        "parcelPoint": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

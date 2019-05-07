@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "siteID": {
+            "required": true,
+            "type": "string"
+        },
+        "outputFormat": {
+            "required": true,
+            "default": "json",
+            "enum": [
+                "json",
+                "geojson",
+                "xhtml",
+                "kml",
+                "gml",
+                "csv",
+                "shpz"
+            ],
+            "type": "string"
+        }
+    }
+}

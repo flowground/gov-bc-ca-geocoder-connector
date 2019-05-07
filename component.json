@@ -1,0 +1,312 @@
+{
+    "title": "Geocoder",
+    "description": "This API represents address cleaning, correction, completion, geocoding, reverse geocoding, and proximity resources for intersection addresses, physical addresses and their occupants in British Columbia. Please read our [data collection notice](https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice).  \n\nPlease note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers. \n\n[Developer API keys](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys) are unique and provide the ability to make up to 2 requests per second. Production government applications may use organization API keys which are further described in [the Developer guide](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys).\n\n **Notification: If you have applications or web pages that link to the public geocoder at one of the following URLs, please note that they are now deprecated [More Details](https://www2.gov.bc.ca/gov/content?id=103ADC5A956842828554238DEF28D6E5).  \n - http://apps.gov.bc.ca/pub/geocoder \n - https://apps.gov.bc.ca/pub/geocoder\n \n \n **To acquire an API key please visit the [API Key Request](https://kq.apps.gov.bc.ca/) application.**\n ",
+    "docsUrl": "https://www2.gov.bc.ca/gov/content?id=118DD57CD9674D57BDBD511C2E78DC0D",
+    "url": "https://api.apis.guru/v2/specs/gov.bc.ca/geocoder/2.0.0/openapi.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://geocoder.api.gov.bc.ca/ - Production (gated)",
+                    "https://geocodertst.api.gov.bc.ca/ - Test (gated)",
+                    "https://geocoderdlv.api.gov.bc.ca/ - Delivery (gated)",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "apikey": {
+                "label": "apikey (apikey)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_addresses__outputFormat_": {
+            "main": "./lib/actions/get_addresses__outputFormat_.js",
+            "title": "Geocode an address",
+            "description": "Represents the set of geocoded and standardized sites and intersections whose address best matches a given query address.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_addresses__outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_intersections_near__outputFormat_": {
+            "main": "./lib/actions/get_intersections_near__outputFormat_.js",
+            "title": "Find intersections near to a geographic point",
+            "description": "Represents intersections near a given point",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_intersections_near__outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_intersections_nearest__outputFormat_": {
+            "main": "./lib/actions/get_intersections_nearest__outputFormat_.js",
+            "title": "Find nearest intersection to a geographic point",
+            "description": "Represents the closest intersection to a given point",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_intersections_nearest__outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_intersections_within__outputFormat_": {
+            "main": "./lib/actions/get_intersections_within__outputFormat_.js",
+            "title": "Find intersections in a geographic area",
+            "description": "Represents all intersections within a given area",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_intersections_within__outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_intersections__intersectionID___outputFormat_": {
+            "main": "./lib/actions/get_intersections__intersectionID___outputFormat_.js",
+            "title": "Get an intersection by its unique ID",
+            "description": "Represents a individual intersection",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_intersections__intersectionID___outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_occupants_addresses__outputFormat_": {
+            "main": "./lib/actions/get_occupants_addresses__outputFormat_.js",
+            "title": "Geocode an address and identify site occupants",
+            "description": "Represents the set of occupants whose addresses best match a given query address. Every occupant has an associated site which has a standardized address and a coordinate location on the Earth.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_occupants_addresses__outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_occupants_near__outputFormat_": {
+            "main": "./lib/actions/get_occupants_near__outputFormat_.js",
+            "title": "Find occupants of sites near to a geographic point",
+            "description": "Represents occupants near a given point in order of closest to farthest",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_occupants_near__outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_occupants_nearest__outputFormat_": {
+            "main": "./lib/actions/get_occupants_nearest__outputFormat_.js",
+            "title": "Find occupants of the site nearest to a geographic point",
+            "description": "Represents the closest occupant to a given point",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_occupants_nearest__outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_occupants_within__outputFormat_": {
+            "main": "./lib/actions/get_occupants_within__outputFormat_.js",
+            "title": "Find occupants of sites in a geographic area",
+            "description": "Represents all occupants within a given area",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_occupants_within__outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_occupants__occupantID___outputFormat_": {
+            "main": "./lib/actions/get_occupants__occupantID___outputFormat_.js",
+            "title": "Get an occupant (of a site) by its unique ID",
+            "description": "Represents an individual occupant",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_occupants__occupantID___outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_parcels_pids__siteID___outputFormat_": {
+            "main": "./lib/actions/get_parcels_pids__siteID___outputFormat_.js",
+            "title": "Get a comma-separated string of all pids for a given site",
+            "description": "Represents all parcel identifiers associated with an individual site",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_parcels_pids__siteID___outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_sites_near__outputFormat_": {
+            "main": "./lib/actions/get_sites_near__outputFormat_.js",
+            "title": "Find sites near to a geographic point",
+            "description": "Represents sites near a given point in the order of closest to farthest",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_sites_near__outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_sites_nearest__outputFormat_": {
+            "main": "./lib/actions/get_sites_nearest__outputFormat_.js",
+            "title": "Find the site nearest to a geographic point",
+            "description": "Represents the site nearest a given point",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_sites_nearest__outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_sites_within__outputFormat_": {
+            "main": "./lib/actions/get_sites_within__outputFormat_.js",
+            "title": "Find sites in a geographic area",
+            "description": "Represents sites within a given area",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_sites_within__outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_sites__siteID___outputFormat_": {
+            "main": "./lib/actions/get_sites__siteID___outputFormat_.js",
+            "title": "Get a site by its unique ID",
+            "description": "Represents an individual site",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_sites__siteID___outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_sites__siteID__subsites__outputFormat_": {
+            "main": "./lib/actions/get_sites__siteID__subsites__outputFormat_.js",
+            "title": "Represents all subsites of a given site",
+            "description": "Represents all subsites of a given site",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_sites__siteID__subsites__outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

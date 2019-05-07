@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "outputFormat": {
+            "required": true,
+            "default": "json",
+            "enum": [
+                "json",
+                "geojson",
+                "xhtml",
+                "kml",
+                "gml",
+                "csv",
+                "shpz"
+            ],
+            "type": "string"
+        },
+        "point": {
+            "required": true,
+            "type": "string"
+        },
+        "maxDistance": {
+            "required": false,
+            "type": "integer"
+        },
+        "outputSRS": {
+            "required": false,
+            "default": 4326,
+            "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+            ],
+            "type": "integer"
+        },
+        "minDegree": {
+            "required": false,
+            "default": 2,
+            "type": "integer"
+        },
+        "maxDegree": {
+            "required": false,
+            "default": 100,
+            "type": "integer"
+        }
+    }
+}

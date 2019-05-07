@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+        "outputFormat": {
+            "required": true,
+            "default": "json",
+            "enum": [
+                "json",
+                "geojson",
+                "xhtml",
+                "kml",
+                "gml",
+                "csv",
+                "shpz"
+            ],
+            "type": "string"
+        },
+        "bbox": {
+            "required": true,
+            "type": "string"
+        },
+        "tags": {
+            "required": false,
+            "type": "string"
+        },
+        "outputSRS": {
+            "required": false,
+            "default": 4326,
+            "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+            ],
+            "type": "integer"
+        },
+        "maxResults": {
+            "required": false,
+            "default": 200,
+            "type": "integer"
+        },
+        "locationDescriptor": {
+            "required": false,
+            "default": "any",
+            "enum": [
+                "any",
+                "accessPoint",
+                "frontDoorPoint",
+                "parcelPoint",
+                "rooftopPoint",
+                "routingPoint"
+            ],
+            "type": "string"
+        },
+        "brief": {
+            "required": false,
+            "default": false,
+            "type": "boolean"
+        },
+        "setBack": {
+            "required": false,
+            "default": 0,
+            "type": "integer"
+        }
+    }
+}

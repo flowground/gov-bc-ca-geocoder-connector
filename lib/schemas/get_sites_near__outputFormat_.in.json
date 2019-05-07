@@ -1,0 +1,80 @@
+{
+    "type": "object",
+    "properties": {
+        "outputFormat": {
+            "required": true,
+            "default": "json",
+            "enum": [
+                "json",
+                "geojson",
+                "xhtml",
+                "kml",
+                "gml",
+                "csv",
+                "shpz"
+            ],
+            "type": "string"
+        },
+        "point": {
+            "required": true,
+            "type": "string"
+        },
+        "maxDistance": {
+            "required": false,
+            "type": "integer"
+        },
+        "outputSRS": {
+            "required": false,
+            "default": 4326,
+            "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+            ],
+            "type": "integer"
+        },
+        "maxResults": {
+            "required": false,
+            "default": 1,
+            "type": "integer"
+        },
+        "locationDescriptor": {
+            "required": false,
+            "default": "any",
+            "enum": [
+                "any",
+                "accessPoint",
+                "frontDoorPoint",
+                "parcelPoint",
+                "rooftopPoint",
+                "routingPoint"
+            ],
+            "type": "string"
+        },
+        "setBack": {
+            "required": false,
+            "default": 0,
+            "type": "integer"
+        },
+        "brief": {
+            "required": false,
+            "default": false,
+            "type": "boolean"
+        },
+        "excludeUnits": {
+            "required": false,
+            "default": false,
+            "type": "boolean"
+        },
+        "onlyCivic": {
+            "required": false,
+            "default": false,
+            "type": "boolean"
+        }
+    }
+}
